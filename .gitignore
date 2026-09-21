@@ -1,0 +1,5 @@
+work/
+.sites-runtime/
+*.log
+__pycache__/
+scripts/
