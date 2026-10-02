@@ -240,7 +240,7 @@ body:not(.home) main {
   -webkit-backface-visibility: hidden;
 }
 .cinema-slide.is-active .cinema-image img {
-  animation: cinema-drift 8s linear both;
+  animation: cinema-drift 3.5s linear both;
 }
 @keyframes cinema-drift {
   from { transform: translateZ(0) scale(1.06); }
@@ -345,7 +345,7 @@ body:not(.home) main {
   transform: scaleX(1);
 }
 .cinema-progress span.is-current::after {
-  animation: cinema-progress 7s linear both;
+  animation: cinema-progress 3s linear both;
 }
 @keyframes cinema-progress {
   to { transform: scaleX(1); }
@@ -357,6 +357,12 @@ body:not(.home) main {
   object-position: center 42%;
 }
 .cinema-slide[data-slide="3"] .cinema-image img {
+  object-position: center 50%;
+}
+.cinema-slide[data-slide="4"] .cinema-image img {
+  object-position: center 50%;
+}
+.cinema-slide[data-slide="5"] .cinema-image img {
   object-position: center 50%;
 }
 .cinema-copy {
@@ -1211,8 +1217,10 @@ dialog.image-viewer::backdrop {
   .cinema-slide[data-slide="1"] .cinema-image img { object-position: center center; }
   .cinema-slide[data-slide="2"] .cinema-image img { object-position: center 38%; }
   .cinema-slide[data-slide="3"] .cinema-image img { object-position: center center; }
+  .cinema-slide[data-slide="4"] .cinema-image img { object-position: center center; }
+  .cinema-slide[data-slide="5"] .cinema-image img { object-position: center center; }
   .cinema-image img { transform-origin: center bottom; }
-  .cinema-slide.is-active .cinema-image img { animation: cinema-drift-mobile 8s linear both; }
+  .cinema-slide.is-active .cinema-image img { animation: cinema-drift-mobile 3.5s linear both; }
   @keyframes cinema-drift-mobile { from { transform: scale(1.29); } to { transform: scale(1.18); } }
   .cinema-frame { padding-top: 96px; padding-bottom: 26px; }
   .cinema-topline { font-size: 9px; }

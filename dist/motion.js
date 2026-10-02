@@ -36,7 +36,7 @@
       });
       clearTimer();
       if (!reduceMotion.matches && !document.hidden) {
-        timer = window.setTimeout(() => show(active + 1), 7000);
+        timer = window.setTimeout(() => show(active + 1), 3000);
       }
     }
 
