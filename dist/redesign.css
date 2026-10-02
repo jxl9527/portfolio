@@ -348,9 +348,14 @@ body:not(.home) main {
 @keyframes cinema-progress {
   to { transform: scaleX(1); }
 }
-.cinema.is-paused .cinema-progress span.is-current::after,
-.cinema.is-paused .cinema-slide.is-active .cinema-image img {
-  animation-play-state: paused;
+.cinema-slide[data-slide="1"] .cinema-image img {
+  object-position: center 50%;
+}
+.cinema-slide[data-slide="2"] .cinema-image img {
+  object-position: center 42%;
+}
+.cinema-slide[data-slide="3"] .cinema-image img {
+  object-position: center 50%;
 }
 .cinema-copy {
   position: absolute;
@@ -1201,8 +1206,9 @@ dialog.image-viewer::backdrop {
   .home .site-header nav { gap: 15px; }
   .home .site-header nav a { font-size: 10px; }
   .home .site-header nav small { display: none; }
-  .cinema { height: 84svh; min-height: 620px; max-height: 850px; }
-  .cinema-image img { object-position: 48% center; }
+  .cinema-slide[data-slide="1"] .cinema-image img { object-position: center center; }
+  .cinema-slide[data-slide="2"] .cinema-image img { object-position: center 38%; }
+  .cinema-slide[data-slide="3"] .cinema-image img { object-position: center center; }
   .cinema-image img { transform-origin: center bottom; }
   .cinema-slide.is-active .cinema-image img { animation: cinema-drift-mobile 8s linear both; }
   @keyframes cinema-drift-mobile { from { transform: scale(1.29); } to { transform: scale(1.18); } }

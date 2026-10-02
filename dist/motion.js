@@ -35,16 +35,9 @@
         bar.classList.toggle('is-current', i === active);
       });
       clearTimer();
-      if (!reduceMotion.matches && !paused && !document.hidden) {
+      if (!reduceMotion.matches && !document.hidden) {
         timer = window.setTimeout(() => show(active + 1), 7000);
       }
-    }
-
-    function pause(value) {
-      paused = value;
-      cinema.classList.toggle('is-paused', value);
-      if (value) clearTimer();
-      else show(active);
     }
 
     const prevBtn = cinema.querySelector('.cinema-prev');
@@ -52,18 +45,12 @@
     if (prevBtn) prevBtn.addEventListener('click', () => show(active - 1));
     if (nextBtn) nextBtn.addEventListener('click', () => show(active + 1));
 
-    cinema.addEventListener('mouseenter', () => pause(true));
-    cinema.addEventListener('mouseleave', () => pause(false));
-    cinema.addEventListener('focusin', () => pause(true));
-    cinema.addEventListener('focusout', event => {
-      if (!cinema.contains(event.relatedTarget)) pause(false);
-    });
     cinema.addEventListener('keydown', event => {
       if (event.key === 'ArrowLeft') { event.preventDefault(); show(active - 1); }
       if (event.key === 'ArrowRight') { event.preventDefault(); show(active + 1); }
     });
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) clearTimer(); else if (!paused) show(active);
+      if (document.hidden) clearTimer(); else show(active);
     });
     reduceMotion.addEventListener('change', () => show(active));
 
@@ -74,7 +61,6 @@
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
-        pause(true);
       }
     }, { passive: true });
 
@@ -87,7 +73,6 @@
           else show(active - 1);
         }
       }
-      pause(false);
     }, { passive: true });
 
     show(0);
