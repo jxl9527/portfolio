@@ -235,17 +235,19 @@ body:not(.home) main {
 .cinema-image img {
   object-fit: cover;
   object-position: center;
-  transform: scale(1.07);
+  transform: translateZ(0) scale(1.06);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .cinema-slide.is-active .cinema-image img {
   animation: cinema-drift 8s linear both;
 }
 @keyframes cinema-drift {
-  from { transform: scale(1.07); }
-  to { transform: scale(1); }
+  from { transform: translateZ(0) scale(1.06); }
+  to { transform: translateZ(0) scale(1); }
 }
 .cinema-shade {
-  background: linear-gradient(180deg, rgba(8, 16, 19, .5), rgba(9, 18, 20, .04) 32%, rgba(6, 16, 16, .14) 56%, rgba(5, 13, 17, .72));
+  background: linear-gradient(180deg, rgba(8, 16, 19, .42), rgba(9, 18, 20, 0) 25%, rgba(6, 16, 16, 0) 52%, rgba(5, 13, 17, .65));
 }
 .cinema-frame {
   position: absolute;
